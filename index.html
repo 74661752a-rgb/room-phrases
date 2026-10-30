@@ -1,0 +1,488 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="color-scheme" content="light dark">
+<meta name="description" content="호텔 객실 41개 품목별 고객 불편과 직원 응대 표현을 영어·일본어·한글로 정리한 학습 페이지">
+<title>객실 응대 영어·일본어</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&family=Noto+Sans+JP:wght@400;500;700&display=swap">
+<style>
+/* 레이아웃: 상단 제어줄(검색·언어·가리기·분류) → 품목 카드 격자(고객 말풍선 / 직원 말풍선) → 문법 탭 */
+:root{
+  --bg:#f2f2ef; --surface:#ffffff; --fg:#16181a; --muted:#656b6e; --line:#dcdcd6;
+  --brass:#8f6613; --brass-soft:#f1e6cc; --guest:#ececE8; --ok:#2f7d4f; --ok-soft:#dbeedf;
+  --sans:"Noto Sans KR","Noto Sans JP",system-ui,sans-serif; --jp:"Noto Sans JP","Noto Sans KR",sans-serif;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#111314; --surface:#1b1e20; --fg:#ececea; --muted:#9aa0a3; --line:#2f3436;
+  --brass:#d9ad55; --brass-soft:#3a2f17; --guest:#262a2c; --ok:#6cc58b; --ok-soft:#1b3a28; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#111314; --surface:#1b1e20; --fg:#ececea; --muted:#9aa0a3; --line:#2f3436;
+  --brass:#d9ad55; --brass-soft:#3a2f17; --guest:#262a2c; --ok:#6cc58b; --ok-soft:#1b3a28; color-scheme:dark}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;scroll-padding-top:72px}
+body{margin:0;min-height:100vh;display:flex;flex-direction:column;background:var(--bg);color:var(--fg);font-family:var(--sans);line-height:1.6}
+.wrap{max-width:1080px;margin:0 auto;display:flex;flex-direction:column;gap:18px}
+h1,h2,h3,h4,p{margin:0}
+h1{font-size:clamp(24px,5vw,34px);font-weight:700;letter-spacing:-.01em}
+.lead{color:var(--muted);font-size:14px}
+.bar{display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+.tabs{display:flex;gap:4px}
+.tab,.chip,.seg button{font:inherit;color:inherit;background:var(--surface);border:1px solid var(--line);cursor:pointer}
+.tab{padding:8px 16px;font-weight:700;border-radius:6px}
+.tab[aria-selected=true]{background:var(--fg);color:var(--bg);border-color:var(--fg)}
+.seg{display:flex}
+.seg button{padding:6px 12px;font-size:13px}
+.seg button:first-child{border-radius:6px 0 0 6px}.seg button:last-child{border-radius:0 6px 6px 0}.seg button+button{border-left:0}
+.seg button[aria-pressed=true]{background:var(--brass);color:#fff;border-color:var(--brass)}
+:root[data-theme="dark"] .seg button[aria-pressed=true]{color:#111}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .seg button[aria-pressed=true]{color:#111}}
+.chips{display:flex;flex-wrap:wrap;gap:6px}
+.chip{border-radius:999px;padding:4px 12px;font-size:13px}
+.chip[aria-pressed=true]{background:var(--brass-soft);border-color:var(--brass);color:var(--brass);font-weight:700}
+input[type=search]{font:inherit;font-size:14px;color:var(--fg);background:var(--surface);border:1px solid var(--line);border-radius:6px;padding:7px 10px;min-width:0;flex:1 1 180px;max-width:280px}
+.toggle{display:flex;align-items:center;gap:6px;font-size:13px;cursor:pointer}
+button:focus-visible,input:focus-visible{outline:2px solid var(--brass);outline-offset:2px}
+.stat{font-size:13px;color:var(--muted);font-variant-numeric:tabular-nums}
+.stat b{color:var(--fg)}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,470px),1fr));gap:14px}
+.item{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:16px;display:flex;flex-direction:column;gap:12px;min-width:0}
+.item.done{border-color:var(--ok)}
+.ih{display:flex;justify-content:space-between;align-items:flex-start;gap:10px}
+.ih h2{font-size:18px;line-height:1.3}
+.ih .jp{font-family:var(--jp);color:var(--muted);font-size:14px;margin-top:2px}
+.ih .ko{font-size:12px;color:var(--brass);font-weight:700;margin-top:2px}
+.memo{font:inherit;font-size:12px;border:1px solid var(--line);background:none;color:var(--muted);border-radius:999px;padding:3px 10px;cursor:pointer;white-space:nowrap}
+.memo[aria-pressed=true]{background:var(--ok-soft);border-color:var(--ok);color:var(--ok);font-weight:700}
+.prob{display:flex;flex-direction:column;gap:8px;border-top:1px dashed var(--line);padding-top:12px}
+.ih + .prob{border-top:0;padding-top:0}
+.pt{font-size:12px;font-weight:700;color:var(--muted);letter-spacing:.04em}
+.b{border-radius:10px;padding:9px 12px;font-size:14px;max-width:94%;display:flex;flex-direction:column;gap:5px}
+.b .who{font-size:11px;font-weight:700;letter-spacing:.06em;color:var(--muted)}
+.guest{background:var(--guest);align-self:flex-start;border-top-left-radius:2px}
+.staff{background:var(--brass-soft);align-self:flex-end;border-top-right-radius:2px}
+.staff .who{color:var(--brass)}
+.ln{display:flex;gap:8px;align-items:baseline}
+.ln i{font-style:normal;font-size:10px;font-weight:700;border:1px solid currentColor;border-radius:3px;padding:0 4px;opacity:.65;flex:none}
+.ln span{min-width:0;overflow-wrap:anywhere}
+.ln.ja span{font-family:var(--jp);line-height:2}
+.ln.ko{color:var(--muted)}.ln.ko span{font-size:13px}
+.ln.ko i{border-style:dashed}
+.no-ko .ko-l{display:none}
+ruby rt{font-size:.5em;color:var(--muted)}
+.note{font-size:13px;color:var(--muted);border-left:3px solid var(--brass);padding-left:10px}
+.note b{color:var(--fg)}
+.en-only .ja,.ja-only .en{display:none}
+.cover .staff .ln span{filter:blur(7px);transition:filter .2s;cursor:pointer;user-select:none}
+.cover .staff.show .ln span{filter:none;user-select:auto}
+.cover .staff::after{content:"눌러서 정답 보기";font-size:11px;color:var(--brass);align-self:flex-end}
+.cover .staff.show::after{content:""}
+.sec{display:flex;flex-direction:column;gap:12px}
+.sec h2{font-size:20px}
+.sec > p{color:var(--muted);font-size:14px}
+.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:10px}
+.step{background:var(--surface);border:1px solid var(--line);border-top:3px solid var(--brass);border-radius:8px;padding:12px;display:flex;flex-direction:column;gap:6px;font-size:13px}
+.step h3{font-size:14px}
+.pat{background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:12px 14px;display:flex;flex-direction:column;gap:6px;min-width:0}
+.pat h3{font-size:15px}
+.pat .mean{font-size:13px;color:var(--muted)}
+.pat .ex{font-size:14px;background:var(--bg);border-radius:6px;padding:7px 10px;display:flex;flex-direction:column;gap:2px}
+.pat .ex .ja{font-family:var(--jp);line-height:2}
+.tw{overflow-x:auto;background:var(--surface);border:1px solid var(--line);border-radius:8px}
+table{border-collapse:collapse;width:100%;font-size:14px}
+th,td{text-align:left;padding:9px 12px;border-bottom:1px solid var(--line);white-space:nowrap;font-family:var(--jp)}
+th{font-size:12px;color:var(--muted);font-family:var(--sans)}
+tr:last-child td{border-bottom:0}
+.empty{color:var(--muted);padding:24px 0;text-align:center}
+.foot{font-size:12px;color:var(--muted)}
+.memo{min-height:36px;padding:6px 12px;font-size:13px}
+.chip{min-height:36px;padding:6px 14px}
+.seg button{min-height:40px}
+.tab{min-height:44px}
+.toggle{min-height:36px}
+.toggle input{width:20px;height:20px;margin:0;accent-color:var(--brass)}
+.staff[tabindex]:focus-visible{outline:2px solid var(--brass);outline-offset:2px}
+@media(max-width:600px){
+  body{font-size:15px;padding-block:12px 40px}
+  .wrap{gap:14px}
+  h1{font-size:24px}
+  .lead{font-size:13px}
+  input[type=search]{font-size:16px;min-height:44px;max-width:none;flex:1 1 100%}
+  .seg{flex:1 1 100%}.seg button{flex:1;padding:6px 4px}
+  .tabs{flex:1}.tab{flex:1}
+  .chips{flex-wrap:nowrap;overflow-x:auto;margin-inline:-16px;padding-inline:16px;padding-bottom:4px;scrollbar-width:thin}
+  .chip{white-space:nowrap;flex:none}
+  .item{padding:14px 12px}
+  .b{max-width:100%;padding:9px 10px}
+  .ln i{font-size:10px}
+  .pat,.step{padding:12px}
+  .ih h2{font-size:17px}
+  .note{font-size:13.5px}
+  .ln.ko span{font-size:13.5px}
+  th,td{padding:8px 10px;font-size:13.5px}
+}
+@media(prefers-reduced-motion:reduce){.cover .staff .ln span{transition:none}}
+
+/* ---- 웹페이지 구조: 상단 바 / 소개 / 본문 / 하단 ---- */
+[hidden]{display:none!important}
+.site-header{position:sticky;top:0;z-index:20;background:var(--bg);border-bottom:1px solid var(--line);padding-top:env(safe-area-inset-top,0px)}
+.site-header .inner{max-width:1080px;margin:0 auto;padding:8px 16px;display:flex;align-items:center;gap:12px;justify-content:space-between}
+.brand{font-weight:700;color:var(--fg);text-decoration:none;font-size:16px;white-space:nowrap}
+.brand span{color:var(--brass);font-size:12px;letter-spacing:.08em;margin-left:6px}
+.site-header .tabs{flex:0 1 auto}
+main.wrap{width:100%;flex:1;padding-inline:16px;padding-block:20px 40px}
+.hero{display:flex;flex-direction:column;gap:12px;border-bottom:3px solid var(--brass);padding-bottom:16px}
+.hero h1{font-size:clamp(26px,6vw,38px)}
+.overall{display:flex;flex-direction:column;gap:6px;max-width:420px}
+.overall .row{display:flex;justify-content:space-between;font-size:13px;color:var(--muted);font-variant-numeric:tabular-nums}
+.overall .row b{color:var(--fg)}
+.overall .track{height:8px;background:var(--line);border-radius:4px;overflow:hidden}
+.overall .track i{display:block;height:100%;width:0;background:var(--brass);transition:width .3s}
+.site-footer{border-top:1px solid var(--line);padding:18px 16px calc(24px + env(safe-area-inset-bottom,0px));text-align:center}
+.site-footer p{max-width:1080px;margin:0 auto;font-size:12px;color:var(--muted)}
+.totop{position:fixed;right:16px;bottom:calc(16px + env(safe-area-inset-bottom,0px));width:48px;height:48px;border-radius:50%;border:1px solid var(--brass);background:var(--surface);color:var(--brass);font:inherit;font-size:20px;cursor:pointer;box-shadow:0 2px 8px rgba(0,0,0,.2);z-index:15}
+.skip{position:absolute;left:-999px;top:0;background:var(--fg);color:var(--bg);padding:8px 12px;z-index:30}
+.skip:focus{left:8px;top:8px}
+@media(max-width:600px){.brand span{display:none}.site-header .tabs{flex:1}}
+@media(prefers-reduced-motion:reduce){.overall .track i{transition:none}}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">본문으로 바로가기</a>
+<header class="site-header">
+  <div class="inner">
+    <a class="brand" href="#items">객실 응대<span>EN·JA</span></a>
+    <div class="tabs" role="tablist" aria-label="화면 선택">
+      <button class="tab" role="tab" id="tab-items" aria-selected="true">객실 품목 41</button>
+      <button class="tab" role="tab" id="tab-gram" aria-selected="false">문법·표현</button>
+    </div>
+  </div>
+</header>
+
+<main class="wrap" id="main">
+  <section class="hero">
+    <h1>객실 응대 영어·일본어</h1>
+    <p class="lead">객실 품목별로 손님이 말하는 불편과, 직원이 하는 사과·조치 표현을 정리했습니다. 일본어는 한자 위에 읽는 법을 달았습니다.</p>
+    <div class="overall" id="overall" role="progressbar" aria-label="외운 품목 비율" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
+      <div class="row"><span>외운 품목 <b id="overall-num">0 / 41</b></span><b id="overall-pct">0%</b></div>
+      <div class="track"><i id="overall-bar"></i></div>
+    </div>
+  </section>
+
+  <div id="view-items" class="sec">
+    <div class="bar">
+      <input type="search" id="q" placeholder="품목 검색 (예: towel, タオル, 수건)" aria-label="품목 검색">
+      <div class="seg" id="lang" role="group" aria-label="언어">
+        <button data-l="both" aria-pressed="true">영어+일본어</button><button data-l="en" aria-pressed="false">영어</button><button data-l="ja" aria-pressed="false">일본어</button>
+      </div>
+      <label class="toggle"><input type="checkbox" id="ko" checked> 한글 번역</label>
+      <label class="toggle"><input type="checkbox" id="cover"> 가리기 모드 (직원 답변 숨김)</label>
+    </div>
+    <div class="chips" id="cats"></div>
+    <div class="stat" id="stat"></div>
+    <div class="grid" id="grid"></div>
+  </div>
+
+  <div id="view-gram" class="sec" hidden></div>
+</main>
+
+<footer class="site-footer">
+  <p id="sync"></p>
+  <p>표현은 일반적인 호텔 응대 기준이며, 근무 호텔의 매뉴얼과 다를 수 있습니다.</p>
+</footer>
+<button class="totop" id="totop" aria-label="맨 위로" hidden>↑</button>
+
+<script>
+/* 객실 응대 데이터: 품목(D), 한글 번역(KO), 문법 자료 */
+const CATS=[["all","전체"],["fac","설비·통신"],["bed","침구·객실"],["bath","욕실"],["amen","수납·편의"],["safe","안전·보안"]];
+/* p: t=상황, ge/gj=손님 영/일, se/sj=직원 영/일, n=한국어 설명. 일본어는 한자{읽기} 표기 */
+const D=[
+// ---- 설비·통신
+{id:"ac",c:"fac",en:"Air Conditioner",ja:"エアコン",ko:"에어컨",p:[
+ {t:"냉방이 안 됨",ge:"The room is too hot. The air conditioner doesn't seem to be working.",gj:"部屋{へや}が暑{あつ}いです。エアコンが効{き}かないようです。",se:"I'm very sorry. Let me check the temperature setting. If it still doesn't cool down, I'll send an engineer right away.",sj:"大変{たいへん}申{もう}し訳{わけ}ございません。設定温度{せっていおんど}を確認{かくにん}いたします。それでも涼{すず}しくならない場合{ばあい}は、すぐに係{かかり}の者{もの}がお伺{うかが}いします。",n:"<b>Let me + 동사원형</b> = 제가 ~해 드릴게요. <b>~いたします</b> = 제가 ~하겠습니다(자신을 낮추는 겸양 표현). <b>場合{ばあい}は</b> = ~하는 경우에는."},
+ {t:"이상한 소음",ge:"The air conditioner is making a strange noise.",gj:"エアコンから変{へん}な音{おと}がします。",se:"I apologize for the noise. I'll have it inspected now. Would you like to move to another room in the meantime?",sj:"ご不快{ふかい}な思{おも}いをさせてしまい、申{もう}し訳{わけ}ございません。すぐに点検{てんけん}いたします。よろしければ、別{べつ}のお部屋{へや}にご案内{あんない}いたします。",n:"<b>Would you like to ~?</b> = ~하시겠어요?(정중한 제안). <b>よろしければ</b> = 괜찮으시다면(부드러운 쿠션말)."}]},
+{id:"tv",c:"fac",en:"Television",ja:"テレビ",ko:"TV",p:[
+ {t:"전원이 안 켜짐",ge:"The TV won't turn on.",gj:"テレビがつきません。",se:"I'm sorry for the inconvenience. Could you try the power button on the TV itself? If it doesn't work, I'll check it right away.",sj:"ご不便{ふべん}をおかけして申{もう}し訳{わけ}ございません。テレビ本体{ほんたい}の電源{でんげん}ボタンを押{お}してみていただけますか。直{なお}らない場合{ばあい}は、すぐに確認{かくにん}に伺{うかが}います。",n:"<b>won't + 동사</b> = (아무리 해도) ~되지 않는다. <b>~ていただけますか</b> = ~해 주실 수 있을까요?(정중한 부탁)."}]},
+{id:"remote",c:"fac",en:"Remote Control",ja:"リモコン",ko:"리모컨",p:[
+ {t:"리모컨이 작동 안 함",ge:"The remote control isn't working.",gj:"リモコンが動{うご}きません。",se:"It may be the batteries. I'll bring new ones right away.",sj:"電池切{でんちぎ}れかもしれません。すぐに新{あたら}しい電池{でんち}をお持{も}ちします。",n:"<b>may be</b> = ~일지도 모른다(추측) = <b>かもしれません</b>. <b>お + 동사 ます형 + します</b> = 제가 ~해 드리겠습니다(겸양)."}]},
+{id:"phone",c:"fac",en:"Telephone",ja:"電話{でんわ}",ko:"전화기",p:[
+ {t:"프런트에 연결이 안 됨",ge:"I can't call the front desk from this phone.",gj:"この電話{でんわ}からフロントにかけられません。",se:"I'm sorry. Please press 0 to reach the front desk. I'll check the line now.",sj:"申{もう}し訳{わけ}ございません。フロントは「0」番{ばん}を押{お}してください。回線{かいせん}を確認{かくにん}いたします。",n:"<b>can't + 동사</b> = ~할 수 없다. 일본어 <b>かけられません</b> = 가능형(걸 수 없다). <b>回線{かいせん}</b> = 통신선."}]},
+{id:"wifi",c:"fac",en:"Wi-Fi Router",ja:"Wi-Fi(ワイファイ)",ko:"와이파이",p:[
+ {t:"와이파이 접속 불가",ge:"I can't connect to the Wi-Fi.",gj:"Wi-Fiにつながりません。",se:"I'll give you the network name and password. Could you try turning your Wi-Fi off and on once?",sj:"ネットワーク名{めい}とパスワードをご案内{あんない}いたします。一度{いちど}、Wi-Fiをオフにしてからオンにしてみてください。",n:"<b>connect to ~</b> = ~에 접속하다. <b>~てみてください</b> = ~해 보세요(시도 권유)."}]},
+{id:"key",c:"fac",en:"Room Key Card",ja:"カードキー",ko:"객실 카드키",p:[
+ {t:"카드키로 문이 안 열림",ge:"My key card doesn't open the door.",gj:"カードキーでドアが開{あ}きません。",se:"I apologize. The card may have lost its magnetism. I'll make a new one now. Could you tell me your name and room number?",sj:"申{もう}し訳{わけ}ございません。カードの磁気{じき}が弱{よわ}くなったのかもしれません。すぐに新{あたら}しいカードをお作{つく}りします。お名前{なまえ}とお部屋番号{へやばんごう}をお教{おし}えいただけますか。",n:"<b>お/ご</b>를 붙이면 상대방 것을 높임(お名前, お部屋). <b>お教{おし}えいただけますか</b> = 알려 주실 수 있나요?"}]},
+{id:"door",c:"fac",en:"Door Handle / Lock",ja:"ドアの鍵{かぎ}",ko:"문 손잡이·잠금",p:[
+ {t:"문이 잠기지 않음",ge:"The door won't lock.",gj:"ドアの鍵{かぎ}がかかりません。",se:"Your safety comes first. I'll send security right away. If necessary, we can change your room.",sj:"お客様{きゃくさま}の安全{あんぜん}が第一{だいいち}ですので、すぐに警備担当{けいびたんとう}が伺{うかが}います。必要{ひつよう}でしたら、お部屋{へや}を変更{へんこう}いたします。",n:"<b>~comes first</b> = ~이 최우선. <b>鍵{かぎ}がかかる</b> = 잠기다(자동사). <b>~でしたら</b> = ~이시라면."}]},
+{id:"lamp",c:"fac",en:"Table Lamp",ja:"電気{でんき}スタンド",ko:"테이블 램프",p:[
+ {t:"램프가 켜지지 않음",ge:"The lamp doesn't turn on.",gj:"ランプがつきません。",se:"Let me check the bulb and the plug. Please give me a moment.",sj:"電球{でんきゅう}とコンセントを確認{かくにん}いたします。少々{しょうしょう}お待{ま}ちください。",n:"<b>Please give me a moment</b> = 잠시만 기다려 주세요. <b>少々{しょうしょう}お待{ま}ちください</b>는 호텔 일본어의 필수 표현."}]},
+{id:"clock",c:"fac",en:"Alarm Clock",ja:"目覚{めざ}まし時計{どけい}",ko:"알람 시계",p:[
+ {t:"알람 설정 방법 문의",ge:"I don't know how to set the alarm.",gj:"アラームの設定{せってい}がわかりません。",se:"I can set a wake-up call for you. What time would you like?",sj:"モーニングコールをお入{い}れしましょうか。何時{なんじ}がよろしいですか。",n:"<b>wake-up call</b> = 모닝콜. <b>~ましょうか</b> = 제가 ~할까요?(제안). <b>よろしいですか</b> = 괜찮으신가요?"}]},
+{id:"bedside",c:"fac",en:"Bedside Table (Outlet)",ja:"ベッドサイドテーブル",ko:"침대 옆 탁자(콘센트)",p:[
+ {t:"충전 콘센트가 안 됨",ge:"The outlet next to the bed isn't working. I need to charge my phone.",gj:"ベッドの横{よこ}のコンセントが使{つか}えません。スマホを充電{じゅうでん}したいです。",se:"I'm sorry. I'll bring a charging adapter right away.",sj:"申{もう}し訳{わけ}ございません。充電{じゅうでん}用{よう}のアダプターをすぐにお持{も}ちします。",n:"<b>outlet</b> = 콘센트(미국식). <b>~たいです</b> = ~하고 싶습니다."}]},
+// ---- 침구·객실
+{id:"bed",c:"bed",en:"Bed / Mattress",ja:"ベッド・マットレス",ko:"침대·매트리스",p:[
+ {t:"매트리스가 너무 딱딱함",ge:"The mattress is too hard. I can't sleep well.",gj:"マットレスが硬{かた}すぎて、よく眠{ねむ}れません。",se:"I'm sorry to hear that. I'll bring a soft mattress topper right away.",sj:"それは申{もう}し訳{わけ}ございません。柔{やわ}らかいマットレストッパーをすぐにお持{も}ちします。",n:"<b>too + 형용사</b> = 너무 ~하다. 일본어는 <b>형용사 어간 + すぎる</b> (硬すぎる). <b>topper</b> = 매트리스 위에 까는 덧패드."}]},
+{id:"pillow",c:"bed",en:"Pillow",ja:"枕{まくら}",ko:"베개",p:[
+ {t:"베개가 안 맞음",ge:"The pillow is too high. Do you have another one?",gj:"枕{まくら}が高{たか}すぎます。別{べつ}の枕{まくら}はありますか。",se:"We have soft, firm and buckwheat pillows. Which would you prefer?",sj:"柔{やわ}らかいもの、硬{かた}いもの、そばがらの枕{まくら}がございます。どちらがよろしいでしょうか。",n:"<b>Which would you prefer?</b> = 어느 쪽이 좋으세요?(선택 묻기). <b>ございます</b> = あります의 최고 정중형. <b>buckwheat</b> = 메밀."}]},
+{id:"sheet",c:"bed",en:"Bedsheet",ja:"シーツ",ko:"침대 시트",p:[
+ {t:"시트에 얼룩이 있음",ge:"There's a stain on the sheet.",gj:"シーツに汚{よご}れがあります。",se:"I'm terribly sorry. I'll change the sheets immediately.",sj:"大変{たいへん}失礼{しつれい}いたしました。すぐに交換{こうかん}いたします。",n:"<b>stain</b> = 얼룩. <b>失礼{しつれい}いたしました</b> = 실례했습니다(직원 실수를 사과할 때). <b>交換{こうかん}</b> = 교환."}]},
+{id:"blanket",c:"bed",en:"Blanket",ja:"毛布{もうふ}",ko:"담요",p:[
+ {t:"담요 추가 요청",ge:"I'm cold. May I have an extra blanket?",gj:"寒{さむ}いです。毛布{もうふ}をもう一枚{いちまい}いただけますか。",se:"Certainly. I'll bring one right away.",sj:"かしこまりました。すぐにお持{も}ちします。",n:"<b>Certainly</b> = 물론입니다. <b>かしこまりました</b> = 알겠습니다(손님에게 쓰는 가장 정중한 대답). <b>一枚{いちまい}</b> = 한 장(얇고 평평한 것의 단위)."}]},
+{id:"curtain",c:"bed",en:"Curtains",ja:"カーテン",ko:"커튼",p:[
+ {t:"커튼이 안 닫힘",ge:"The curtains don't close properly, and the light comes in.",gj:"カーテンがきちんと閉{し}まりません。光{ひかり}が入{はい}ってきます。",se:"I'm sorry. May I come in and fix it?",sj:"申{もう}し訳{わけ}ございません。お部屋{へや}に入{はい}って直{なお}してもよろしいでしょうか。",n:"<b>May I ~?</b> = ~해도 될까요? <b>~てもよろしいでしょうか</b>가 일본어 짝꿍 표현. 객실에 들어갈 때는 꼭 허락을 구합니다."}]},
+{id:"window",c:"bed",en:"Window",ja:"窓{まど}",ko:"창문",p:[
+ {t:"바깥 소음",ge:"It's very noisy outside.",gj:"外{そと}がとてもうるさいです。",se:"I'm sorry. Closing the window will help a little. We can also offer a quieter room on a higher floor.",sj:"申{もう}し訳{わけ}ございません。窓{まど}を閉{し}めると少{すこ}し静{しず}かになります。より静{しず}かな高層階{こうそうかい}のお部屋{へや}もご用意{ようい}できます。",n:"<b>quieter</b> = 더 조용한(비교급). 일본어는 <b>より + 형용사</b>. <b>ご用意{ようい}できます</b> = 준비해 드릴 수 있습니다."}]},
+{id:"balcony",c:"bed",en:"Balcony",ja:"バルコニー",ko:"발코니",p:[
+ {t:"발코니 문이 안 열림",ge:"I can't open the balcony door.",gj:"バルコニーのドアが開{あ}きません。",se:"It has a safety lock. I'll show you how to open it. Please watch your step.",sj:"安全{あんぜん}のため、鍵{かぎ}がついております。開{あ}け方{かた}をご案内{あんない}いたします。お足元{あしもと}にご注意{ちゅうい}ください。",n:"<b>Please watch your step</b> = 발밑 조심하세요. <b>~ております</b> = ~하고 있습니다(いる의 겸양). <b>開{あ}け方{かた}</b> = 여는 방법."}]},
+// ---- 욕실
+{id:"shower",c:"bath",en:"Shower",ja:"シャワー",ko:"샤워기",p:[
+ {t:"온수가 안 나옴",ge:"There's no hot water.",gj:"お湯{ゆ}が出{で}ません。",se:"Please let the water run for about a minute. If it's still cold, I'll send an engineer right away.",sj:"1分{ぷん}ほど水{みず}を流{なが}してみてください。それでも冷{つめ}たい場合{ばあい}は、すぐに係{かかり}の者{もの}がお伺{うかが}いします。",n:"<b>let the water run</b> = 물을 틀어 두다. <b>~ほど</b> = ~정도. <b>お湯{ゆ}</b> = 뜨거운 물, <b>水{みず}</b> = 찬 물."}]},
+{id:"basin",c:"bath",en:"Washbasin",ja:"洗面台{せんめんだい}",ko:"세면대",p:[
+ {t:"배수가 느림(막힘)",ge:"The sink is draining very slowly.",gj:"洗面台{せんめんだい}の水{みず}の流{なが}れが悪{わる}いです。",se:"I apologize. I'll send maintenance right away. It will take about 10 minutes.",sj:"申{もう}し訳{わけ}ございません。すぐに修理担当{しゅうりたんとう}が伺{うかが}います。10分{ぷん}ほどお時間{じかん}をいただきます。",n:"<b>It will take about ~</b> = ~정도 걸립니다. <b>お時間{じかん}をいただきます</b> = 시간을 주십시오(양해를 구하는 표현). <b>sink</b> = 세면대."}]},
+{id:"toilet",c:"bath",en:"Toilet",ja:"トイレ",ko:"변기",p:[
+ {t:"물이 내려가지 않음",ge:"The toilet won't flush.",gj:"トイレの水{みず}が流{なが}れません。",se:"I'm very sorry. I'll send someone to fix it immediately. In the meantime, you're welcome to use the restroom in the lobby.",sj:"大変{たいへん}申{もう}し訳{わけ}ございません。すぐに修理{しゅうり}に伺{うかが}います。それまで、ロビーのお手洗{てあら}いをお使{つか}いください。",n:"<b>flush</b> = 물을 내리다. <b>in the meantime</b> = 그동안. <b>お手洗{てあら}い</b> = 화장실의 정중한 말. <b>お使{つか}いください</b> = 사용해 주세요(존경 요청)."}]},
+{id:"mirror",c:"bath",en:"Mirror",ja:"鏡{かがみ}",ko:"거울",p:[
+ {t:"거울에 금이 감",ge:"The mirror is cracked.",gj:"鏡{かがみ}にひびが入{はい}っています。",se:"That's dangerous. I'll replace it immediately. Please avoid touching it.",sj:"危険{きけん}ですので、すぐに交換{こうかん}いたします。触{さわ}らないようにお願{ねが}いいたします。",n:"<b>cracked</b> = 금이 간. <b>Please avoid -ing</b> = ~하지 말아 주세요(명령보다 부드러움). <b>~ようにお願{ねが}いします</b> = ~하도록 부탁드립니다."}]},
+{id:"towel",c:"bath",en:"Towels",ja:"タオル",ko:"수건",p:[
+ {t:"수건이 부족함",ge:"We need more towels.",gj:"タオルが足{た}りません。",se:"I'll bring some right away. How many would you like?",sj:"すぐにお持{も}ちします。何枚{なんまい}ご必要{ひつよう}でしょうか。",n:"<b>足{た}りません</b> = 부족합니다. <b>何枚{なんまい}</b> = 몇 장. How many ~? 로 수량을 확인합니다."}]},
+{id:"dryer",c:"bath",en:"Hair Dryer",ja:"ドライヤー",ko:"헤어드라이어",p:[
+ {t:"드라이어가 작동 안 함",ge:"The hair dryer doesn't work.",gj:"ドライヤーが動{うご}きません。",se:"The safety switch may have been triggered. I'll bring you a new one.",sj:"安全装置{あんぜんそうち}が作動{さどう}したのかもしれません。新{あたら}しいものをお持{も}ちします。",n:"<b>triggered</b> = 작동했다. <b>~のかもしれません</b> = ~했던 것일지도 모릅니다(원인 추측). 과열 방지 장치가 꺼진 경우가 많습니다."}]},
+{id:"robe",c:"bath",en:"Bathrobe",ja:"バスローブ",ko:"목욕 가운",p:[
+ {t:"사이즈가 맞지 않음",ge:"The bathrobe is too small. Do you have a bigger size?",gj:"バスローブが小{ちい}さいです。大{おお}きいサイズはありますか。",se:"Yes, we have L and XL. I'll bring one now.",sj:"はい、LサイズとXLサイズがございます。すぐにお持{も}ちします。",n:"<b>bigger</b> = 더 큰. <b>サイズ</b> = 사이즈. 숫자·알파벳은 그대로 말해도 됩니다."}]},
+{id:"slipper",c:"bath",en:"Slippers",ja:"スリッパ",ko:"슬리퍼",p:[
+ {t:"어린이용 요청",ge:"Could I have a pair of slippers for my child?",gj:"子供用{こどもよう}のスリッパをいただけますか。",se:"Certainly. We have children's size. I'll bring them to your room.",sj:"かしこまりました。お子様用{こさまよう}がございます。お部屋{へや}までお持{も}ちします。",n:"<b>a pair of</b> = 한 켤레의. <b>お子様{こさま}</b> = 손님의 아이를 높여 부르는 말(自分의 아이는 子供{こども})."}]},
+{id:"tissue",c:"bath",en:"Tissue Box",ja:"ティッシュ",ko:"휴지(티슈)",p:[
+ {t:"티슈가 떨어짐",ge:"We've run out of tissues.",gj:"ティッシュがなくなりました。",se:"I'm sorry. I'll refill it now.",sj:"申{もう}し訳{わけ}ございません。すぐに補充{ほじゅう}いたします。",n:"<b>run out of ~</b> = ~이 떨어지다. <b>refill</b> = 다시 채우다 = <b>補充{ほじゅう}</b>."}]},
+// ---- 수납·편의
+{id:"wardrobe",c:"amen",en:"Wardrobe",ja:"クローゼット",ko:"옷장",p:[
+ {t:"옷장에서 곰팡이 냄새",ge:"There's a musty smell in the wardrobe.",gj:"クローゼットがかび臭{くさ}いです。",se:"I'm so sorry. We'll deodorize it right away, or we can change your room if you prefer.",sj:"申{もう}し訳{わけ}ございません。すぐに消臭{しょうしゅう}いたします。ご希望{きぼう}でしたら、お部屋{へや}の変更{へんこう}も可能{かのう}です。",n:"<b>musty</b> = 곰팡내 나는. <b>if you prefer</b> = 원하시면 = <b>ご希望{きぼう}でしたら</b>. 해결책을 두 가지 내놓는 게 좋습니다."}]},
+{id:"hanger",c:"amen",en:"Hanger",ja:"ハンガー",ko:"옷걸이",p:[
+ {t:"옷걸이가 부족함",ge:"I need more hangers.",gj:"ハンガーが足{た}りません。",se:"Of course. How many do you need? I'll bring them now.",sj:"かしこまりました。いくつお持{も}ちしましょうか。",n:"<b>How many ~?</b> = 몇 개? 일본어 <b>いくつ</b> = 몇 개(물건 수를 모를 때 쓰는 무난한 말)."}]},
+{id:"safe",c:"amen",en:"Safe Box",ja:"金庫{きんこ}",ko:"객실 금고",p:[
+ {t:"금고가 안 열림(비밀번호 분실)",ge:"I can't open the safe. I forgot the code.",gj:"金庫{きんこ}が開{あ}きません。暗証番号{あんしょうばんごう}を忘{わす}れました。",se:"I'll come and open it for you. May I confirm your name and room number first?",sj:"係{かかり}の者{もの}がお伺{うかが}いして開{あ}けます。まず、お名前{なまえ}とお部屋番号{へやばんごう}を確認{かくにん}させていただきます。",n:"<b>~させていただきます</b> = (허락을 받고) ~하겠습니다. 확인·접수 때 자주 씁니다. <b>暗証番号{あんしょうばんごう}</b> = 비밀번호."}]},
+{id:"rack",c:"amen",en:"Luggage Rack",ja:"荷物置{にもつお}き",ko:"짐 받침대",p:[
+ {t:"짐 놓을 곳이 없음",ge:"There's no place to put my luggage.",gj:"荷物{にもつ}を置{お}く台{だい}がありません。",se:"I'm sorry. I'll bring a luggage rack right away.",sj:"申{もう}し訳{わけ}ございません。荷物置{にもつお}きをすぐにお持{も}ちします。",n:"<b>luggage</b> = 짐(셀 수 없는 명사, a luggage ✕). <b>置{お}く台{だい}</b> = 놓는 받침대."}]},
+{id:"suitcase",c:"amen",en:"Suitcase",ja:"スーツケース",ko:"여행 가방",p:[
+ {t:"무거운 짐 운반 요청",ge:"My suitcase is very heavy. Could you help me carry it?",gj:"スーツケースが重{おも}くて運{はこ}べません。手伝{てつだ}っていただけますか。",se:"Of course. The bellman will carry it to your room.",sj:"もちろんです。ベルスタッフがお部屋{へや}までお運{はこ}びします。",n:"<b>bellman</b> = 짐을 옮겨 주는 직원. <b>carry ~ to ...</b> = ~을 ...까지 나르다. <b>お運{はこ}びします</b> = 제가 옮겨 드리겠습니다."}]},
+{id:"chair",c:"amen",en:"Chair",ja:"いす",ko:"의자",p:[
+ {t:"의자가 흔들림",ge:"This chair is wobbly.",gj:"このいすがぐらぐらします。",se:"I'm sorry. I'll replace it with another chair right away.",sj:"申{もう}し訳{わけ}ございません。すぐに別{べつ}のいすと交換{こうかん}いたします。",n:"<b>wobbly</b> = 흔들거리는. <b>ぐらぐら</b>는 흔들리는 소리·모양을 나타내는 흉내말. <b>replace A with B</b> = A를 B로 교체."}]},
+{id:"fridge",c:"amen",en:"Mini Fridge",ja:"冷蔵庫{れいぞうこ}",ko:"미니 냉장고",p:[
+ {t:"냉장고가 차갑지 않음",ge:"The mini fridge isn't cold.",gj:"冷蔵庫{れいぞうこ}が冷{ひ}えていません。",se:"Let me check it. If you like, we can keep your drinks in the front desk fridge.",sj:"確認{かくにん}いたします。よろしければ、お飲{の}み物{もの}をフロントの冷蔵庫{れいぞうこ}でお預{あず}かりします。",n:"<b>keep ~</b> = 보관하다 = <b>お預{あず}かりします</b>. <b>冷{ひ}えて(い)ません</b> = 식어 있지 않다(상태)."}]},
+{id:"coffee",c:"amen",en:"Coffee Maker",ja:"コーヒーメーカー",ko:"커피 머신",p:[
+ {t:"사용법 문의",ge:"I don't know how to use the coffee maker.",gj:"コーヒーメーカーの使{つか}い方{かた}がわかりません。",se:"Please put a coffee pack in and press the start button. Shall I show you?",sj:"コーヒーパックを入{い}れて、スタートボタンを押{お}してください。ご説明{せつめい}いたしましょうか。",n:"<b>Shall I ~?</b> = 제가 ~할까요?(제안). <b>使{つか}い方{かた}</b> = 사용법(동사 ます형 + 方{かた} = ~하는 법)."}]},
+{id:"kettle",c:"amen",en:"Electric Kettle",ja:"電気{でんき}ケトル",ko:"전기 주전자",p:[
+ {t:"물이 끓지 않음",ge:"The kettle doesn't heat up.",gj:"ケトルのお湯{ゆ}が沸{わ}きません。",se:"I'll replace it with a new one. Please be careful, the water is hot.",sj:"新{あたら}しいケトルと交換{こうかん}いたします。お湯{ゆ}が熱{あつ}いので、お気{き}をつけください。",n:"<b>Please be careful</b> = 조심하세요. <b>お気{き}をつけください</b>. 이유를 먼저 말하는 <b>~ので</b>(~이므로)가 부드럽습니다."}]},
+{id:"cup",c:"amen",en:"Tea Cups",ja:"カップ",ko:"찻잔",p:[
+ {t:"잔이 깨져 있음",ge:"This cup is chipped.",gj:"このカップが欠{か}けています。",se:"That's dangerous. I'm very sorry. I'll bring clean cups right away.",sj:"危険{きけん}ですね。大変{たいへん}申{もう}し訳{わけ}ございません。新{あたら}しいカップをすぐにお持{も}ちします。",n:"<b>chipped</b> = 이가 빠진. <b>欠{か}けています</b> = 깨져 있습니다(상태). 안전 문제는 먼저 위험하다고 공감합니다."}]},
+{id:"bin",c:"amen",en:"Dustbin",ja:"ゴミ箱{ばこ}",ko:"쓰레기통",p:[
+ {t:"쓰레기통이 비워지지 않음",ge:"The trash can hasn't been emptied.",gj:"ゴミ箱{ばこ}がいっぱいです。",se:"I'm sorry about that. I'll send housekeeping to empty it right away.",sj:"申{もう}し訳{わけ}ございません。すぐにハウスキーピングがゴミを回収{かいしゅう}いたします。",n:"<b>trash can</b>(미국) / <b>bin</b>(영국) = 쓰레기통. <b>hasn't been emptied</b> = 비워지지 않았다(수동태 현재완료). <b>回収{かいしゅう}</b> = 수거."}]},
+// ---- 안전·보안
+{id:"smoke",c:"safe",en:"Smoke Detector",ja:"火災報知器{かさいほうちき}",ko:"화재 감지기",p:[
+ {t:"감지기가 삐 소리를 냄",ge:"The smoke detector is beeping.",gj:"火災報知器{かさいほうちき}がピーピー鳴{な}っています。",se:"Please don't worry. It may be a low battery. I'll come and check right now.",sj:"ご安心{あんしん}ください。電池{でんち}が少{すく}なくなっているのかもしれません。すぐに確認{かくにん}に伺{うかが}います。",n:"<b>Please don't worry</b> = ご安心{あんしん}ください. 안전 관련 문의에는 먼저 안심시키고 바로 출동합니다."},
+ {t:"객실 내 흡연 안내 (직원이 먼저 말함)",se:"Excuse me, this is a non-smoking room. Smoking may set off the smoke detector. Smoking is allowed only in the designated area on the first floor.",sj:"恐{おそ}れ入{い}りますが、こちらは禁煙{きんえん}のお部屋{へや}です。煙{けむり}が出{で}ると火災報知器{かさいほうちき}が作動{さどう}します。喫煙{きつえん}は1階{かい}の喫煙所{きつえんじょ}でお願{ねが}いいたします。",n:"<b>Excuse me, ~</b> / <b>恐{おそ}れ入{い}りますが</b>는 '죄송하지만' 하고 말을 여는 쿠션말. <b>designated area</b> = 지정 구역."}]},
+{id:"sprinkler",c:"safe",en:"Sprinkler",ja:"スプリンクラー",ko:"스프링클러",p:[
+ {t:"천장 장치 문의",ge:"What is that thing on the ceiling? Is it safe?",gj:"天井{てんじょう}のあれは何{なん}ですか。安全{あんぜん}ですか。",se:"That's the fire sprinkler. It's completely safe. Please don't hang anything on it.",sj:"火災{かさい}に備{そな}えたスプリンクラーです。ご安心{あんしん}ください。物{もの}を掛{か}けないようお願{ねが}いいたします。",n:"<b>hang ~ on ...</b> = ...에 ~을 걸다. 스프링클러에 옷 등을 걸면 오작동 위험이 있어 꼭 안내합니다."}]},
+{id:"exit",c:"safe",en:"Fire Exit Sign",ja:"非常口{ひじょうぐち}",ko:"비상구 표지",p:[
+ {t:"비상구 위치 문의",ge:"Where is the emergency exit?",gj:"非常口{ひじょうぐち}はどこですか。",se:"It's at the end of the hallway, on your left. Please also check the evacuation map on the back of your door.",sj:"廊下{ろうか}の突{つ}き当{あ}たり、左側{ひだりがわ}にございます。ドアの裏{うら}の避難経路図{ひなんけいろず}もご確認{かくにん}ください。",n:"<b>at the end of ~</b> = ~의 끝에. <b>on your left</b> = 왼쪽에. <b>evacuation map</b> = 대피도. <b>突{つ}き当{あ}たり</b> = 막다른 곳."}]},
+{id:"camera",c:"safe",en:"Security Camera",ja:"防犯{ぼうはん}カメラ",ko:"보안 카메라",p:[
+ {t:"객실 내 카메라 여부 문의",ge:"Is there a camera in my room?",gj:"部屋{へや}の中{なか}にカメラはありますか。",se:"No, there are no cameras inside guest rooms. Security cameras are only in public areas such as hallways and the lobby.",sj:"いいえ、客室{きゃくしつ}の中{なか}にはございません。防犯{ぼうはん}カメラは、廊下{ろうか}やロビーなどの共用{きょうよう}部分{ぶぶん}のみです。",n:"<b>such as ~</b> = ~와 같은. <b>~のみ</b> = ~뿐(딱딱한 표현). 사생활 걱정에는 분명하고 짧게 답합니다."}]}
+];
+
+const KO={
+ac:[["방이 너무 더워요. 에어컨이 작동하지 않는 것 같아요.","대단히 죄송합니다. 설정 온도를 확인하겠습니다. 그래도 시원해지지 않으면 바로 담당자가 올라가겠습니다."],["에어컨에서 이상한 소리가 나요.","불편을 드려 죄송합니다. 바로 점검하겠습니다. 괜찮으시면 그동안 다른 객실로 안내해 드리겠습니다."]],
+tv:[["TV가 켜지지 않아요.","불편을 드려 죄송합니다. TV 본체의 전원 버튼을 눌러 봐 주시겠어요? 그래도 안 되면 바로 확인하러 가겠습니다."]],
+remote:[["리모컨이 작동하지 않아요.","건전지가 다 됐을지도 모릅니다. 바로 새 건전지를 가져다 드리겠습니다."]],
+phone:[["이 전화로는 프런트에 걸 수 없어요.","죄송합니다. 프런트는 0번을 눌러 주세요. 회선을 확인해 보겠습니다."]],
+wifi:[["와이파이에 연결이 안 돼요.","네트워크 이름과 비밀번호를 안내해 드리겠습니다. 한 번 와이파이를 껐다가 다시 켜 봐 주세요."]],
+key:[["카드키로 문이 열리지 않아요.","죄송합니다. 카드의 자기(자성)가 약해졌을지도 모릅니다. 바로 새 카드를 만들어 드리겠습니다. 성함과 객실 번호를 알려 주시겠어요?"]],
+door:[["문이 잠기지 않아요.","고객님의 안전이 최우선이므로 바로 보안 담당자가 가겠습니다. 필요하시면 객실을 변경해 드리겠습니다."]],
+lamp:[["램프가 켜지지 않아요.","전구와 콘센트를 확인하겠습니다. 잠시만 기다려 주세요."]],
+clock:[["알람 설정 방법을 모르겠어요.","모닝콜을 넣어 드릴까요? 몇 시가 좋으신가요?"]],
+bedside:[["침대 옆 콘센트가 안 돼요. 휴대폰을 충전하고 싶어요.","죄송합니다. 충전용 어댑터를 바로 가져다 드리겠습니다."]],
+bed:[["매트리스가 너무 딱딱해서 잘 못 자겠어요.","그러셨군요, 죄송합니다. 부드러운 매트리스 토퍼를 바로 가져다 드리겠습니다."]],
+pillow:[["베개가 너무 높아요. 다른 베개 있나요?","부드러운 것, 단단한 것, 메밀껍질 베개가 있습니다. 어느 쪽이 좋으신가요?"]],
+sheet:[["시트에 얼룩이 있어요.","정말 죄송합니다. 바로 시트를 교체하겠습니다."]],
+blanket:[["추워요. 담요를 한 장 더 받을 수 있을까요?","알겠습니다. 바로 가져다 드리겠습니다."]],
+curtain:[["커튼이 제대로 닫히지 않아서 빛이 들어와요.","죄송합니다. 객실에 들어가서 고쳐도 괜찮을까요?"]],
+window:[["밖이 너무 시끄러워요.","죄송합니다. 창문을 닫으시면 조금 조용해집니다. 더 조용한 고층 객실도 준비해 드릴 수 있습니다."]],
+balcony:[["발코니 문이 열리지 않아요.","안전을 위해 잠금장치가 달려 있습니다. 여는 방법을 안내해 드리겠습니다. 발밑을 조심해 주세요."]],
+shower:[["온수가 나오지 않아요.","1분 정도 물을 틀어 두세요. 그래도 차가우면 바로 담당자가 가겠습니다."]],
+basin:[["세면대 물이 잘 안 내려가요.","죄송합니다. 바로 수리 담당자가 가겠습니다. 10분 정도 시간을 주십시오."]],
+toilet:[["변기 물이 내려가지 않아요.","정말 죄송합니다. 바로 수리하러 가겠습니다. 그동안 로비의 화장실을 이용해 주세요."]],
+mirror:[["거울에 금이 가 있어요.","위험하니 바로 교체하겠습니다. 만지지 않도록 부탁드립니다."]],
+towel:[["수건이 부족해요.","바로 가져다 드리겠습니다. 몇 장 필요하신가요?"]],
+dryer:[["드라이어가 작동하지 않아요.","안전장치가 작동했을지도 모릅니다. 새것을 가져다 드리겠습니다."]],
+robe:[["가운이 작아요. 더 큰 사이즈 있나요?","네, L과 XL 사이즈가 있습니다. 바로 가져다 드리겠습니다."]],
+slipper:[["아이용 슬리퍼를 받을 수 있을까요?","알겠습니다. 어린이용이 있습니다. 객실까지 가져다 드리겠습니다."]],
+tissue:[["티슈가 다 떨어졌어요.","죄송합니다. 바로 채워 드리겠습니다."]],
+wardrobe:[["옷장에서 곰팡이 냄새가 나요.","정말 죄송합니다. 바로 탈취하겠습니다. 원하시면 객실 변경도 가능합니다."]],
+hanger:[["옷걸이가 부족해요.","알겠습니다. 몇 개 가져다 드릴까요?"]],
+safe:[["금고가 안 열려요. 비밀번호를 잊어버렸어요.","직원이 가서 열어 드리겠습니다. 먼저 성함과 객실 번호를 확인하겠습니다."]],
+rack:[["짐을 놓을 곳이 없어요.","죄송합니다. 짐 받침대를 바로 가져다 드리겠습니다."]],
+suitcase:[["여행 가방이 무거워서 못 옮기겠어요. 도와주실 수 있나요?","물론입니다. 벨 직원이 객실까지 옮겨 드리겠습니다."]],
+chair:[["이 의자가 흔들려요.","죄송합니다. 바로 다른 의자로 교체해 드리겠습니다."]],
+fridge:[["미니 냉장고가 차갑지 않아요.","확인하겠습니다. 괜찮으시면 음료를 프런트 냉장고에 보관해 드리겠습니다."]],
+coffee:[["커피 머신 사용법을 모르겠어요.","커피 팩을 넣고 시작 버튼을 눌러 주세요. 설명해 드릴까요?"]],
+kettle:[["주전자의 물이 끓지 않아요.","새 주전자로 교체해 드리겠습니다. 물이 뜨거우니 조심해 주세요."]],
+cup:[["이 잔이 이가 빠졌어요.","위험하네요. 정말 죄송합니다. 새 잔을 바로 가져다 드리겠습니다."]],
+bin:[["쓰레기통이 비워지지 않았어요.","죄송합니다. 바로 하우스키핑이 쓰레기를 수거하겠습니다."]],
+smoke:[["화재 감지기에서 삐삐 소리가 나요.","걱정하지 마세요. 건전지가 부족한 것일지도 모릅니다. 바로 확인하러 가겠습니다."],[null,"실례지만 이 객실은 금연입니다. 연기가 나면 화재 감지기가 작동합니다. 흡연은 1층 흡연 구역에서 부탁드립니다."]],
+sprinkler:[["천장에 있는 저건 뭐예요? 안전한가요?","화재에 대비한 스프링클러입니다. 안심하세요. 물건을 걸지 않도록 부탁드립니다."]],
+exit:[["비상구가 어디예요?","복도 끝 왼쪽에 있습니다. 문 안쪽의 대피도도 확인해 주세요."]],
+camera:[["제 방에 카메라가 있나요?","아니요, 객실 안에는 없습니다. 보안 카메라는 복도와 로비 같은 공용 공간에만 있습니다."]]
+};
+const FLOW_KO=["상황을 듣고 먼저 사과·공감합니다.","들어가거나 만져도 되는지 허락을 구합니다.","바로 할 수 있는 조치를 말합니다.","걸리는 시간을 알려 줍니다.","추가 요청이 있는지 열어 둡니다."];
+const FLOW_EX_KO=["그러셨군요, 정말 죄송합니다.","객실을 확인해도 괜찮을까요?","바로 담당자를 보내겠습니다.","10분 정도 걸립니다.","다른 필요한 것이 있으면 말씀해 주세요."];
+const EN_EX_KO=["불편을 드려 죄송합니다. 바로 고치겠습니다.","객실을 확인해 보겠습니다.","새 수건을 바로 가져다 드리겠습니다.","들어가서 확인해도 될까요?","다른 객실로 옮기시겠어요?","객실 번호를 알려 주시겠어요?","건전지 문제일지도 모릅니다.","조심하세요, 뜨겁습니다."];
+const JA_EX_KO=["대단히 죄송합니다.","잠시만 기다려 주세요.","가져다 드리겠습니다. 안내해 드리겠습니다.","객실에 들어가도 괜찮을까요?","확인하겠습니다.","건전지가 다 됐을지도 모릅니다.","슬리퍼가 있습니다.","확인해 주세요. 사용해 주세요.","공교롭게도 만실입니다.","알겠습니다. 바로 가겠습니다."];
+
+const FLOW=[
+ ["1. 공감·사과","I'm so sorry to hear that.","申{もう}し訳{わけ}ございません。"],
+ ["2. 상황 확인","May I check the room?","確認{かくにん}させていただいてもよろしいでしょうか。"],
+ ["3. 해결책 제시","I'll send someone right away.","すぐに係{かかり}の者{もの}がお伺{うかが}いします。"],
+ ["4. 시간·대기 안내","It will take about 10 minutes.","10分{ぷん}ほどお待{ま}ちください。"],
+ ["5. 마무리","Please let us know if you need anything else.","他{ほか}にもございましたら、お申{もう}し付{つ}けください。"]
+];
+const EN_PAT=[
+ ["I'm so sorry to hear that. / I apologize for the inconvenience.","사과와 공감. 문제를 들은 첫마디로 씁니다. inconvenience = 불편.","I apologize for the inconvenience. I'll fix it right away."],
+ ["Let me + 동사원형","'제가 ~해 드릴게요'. 바로 행동하겠다는 뜻입니다.","Let me check your room."],
+ ["I'll + 동사 + right away","'바로 ~하겠습니다'. will은 그 자리에서 정한 약속에 씁니다.","I'll bring a new towel right away."],
+ ["May I + 동사원형 ~?","'~해도 될까요?' 허락을 구하는 가장 정중한 형태.","May I come in and check it?"],
+ ["Would you like to ~? / Would you like + 명사?","'~하시겠어요?' 제안할 때.","Would you like to move to another room?"],
+ ["Could you (please) ~?","'~해 주실 수 있나요?' 손님에게 부탁할 때.","Could you tell me your room number?"],
+ ["It may be + 명사 / It seems that ~","원인을 단정하지 않고 추측할 때. may be = 일지도 모른다.","It may be the batteries."],
+ ["Please be careful of / Please avoid -ing","주의를 줄 때. 명령형이지만 Please로 부드럽게.","Please be careful, it's hot."]
+];
+const JA_PAT=[
+ ["申{もう}し訳{わけ}ございません / 失礼{しつれい}いたしました","사과. 申し訳ございません이 가장 정중하고, 失礼いたしました는 가벼운 실수에 씁니다.","大変{たいへん}申{もう}し訳{わけ}ございません。"],
+ ["少々{しょうしょう}お待{ま}ちください","'잠시만 기다려 주세요'. お待{ま}たせしました = 기다리게 했습니다.","少々{しょうしょう}お待{ま}ちください。"],
+ ["お + 동사 ます형 + します / ご + 한자어 + いたします","'제가 ~해 드리겠습니다'(겸양). 자신의 행동을 낮춰 손님을 높입니다.","お持{も}ちします。ご案内{あんない}いたします。"],
+ ["~てもよろしいでしょうか","'~해도 괜찮을까요?' 허락을 구하는 정중한 표현.","お部屋{へや}に入{はい}ってもよろしいでしょうか。"],
+ ["~させていただきます","'(허락을 받고) ~하겠습니다'. 확인·접수·정리할 때.","確認{かくにん}させていただきます。"],
+ ["~かもしれません","'~일지도 모릅니다'. 원인을 단정하지 않는 추측.","電池切{でんちぎ}れかもしれません。"],
+ ["ございます / ~でございます","あります·です의 최고 정중형. '~이 있습니다'.","スリッパがございます。"],
+ ["お/ご + 동사 ます형 + ください","'~해 주십시오'(존경 요청). 손님의 동작을 높입니다.","ご確認{かくにん}ください。お使{つか}いください。"],
+ ["恐{おそ}れ入{い}りますが / あいにく","쿠션말. 恐れ入りますが = 죄송하지만, あいにく = 공교롭게도(안 될 때).","あいにく満室{まんしつ}でございます。"],
+ ["かしこまりました / 承知{しょうち}いたしました","'알겠습니다'. 손님에게 쓰는 대답. わかりました는 쓰지 않습니다.","かしこまりました。すぐに参{まい}ります。"]
+];
+const JA_VERB=[
+ ["つきません","つく / つける","불이 켜지다 / 불을 켜다"],
+ ["開{あ}きません","開{あ}く / 開{あ}ける","열리다 / 열다"],
+ ["閉{し}まりません","閉{し}まる / 閉{し}める","닫히다 / 닫다"],
+ ["動{うご}きません","動{うご}く / 動{うご}かす","움직이다 / 움직이게 하다"],
+ ["壊{こわ}れています","壊{こわ}れる / 壊{こわ}す","고장 나다 / 부수다"],
+ ["流{なが}れません","流{なが}れる / 流{なが}す","흐르다 / 흘려보내다"]
+];
+const KEIGO=[
+ ["行{い}く / 来{く}る","行{い}きます","伺{うかが}います・参{まい}ります","방문하다·가다"],
+ ["する","します","いたします","하다"],
+ ["言{い}う","言{い}います","申{もう}します","말하다"],
+ ["いる","います","おります / (손님)いらっしゃいます","있다"],
+ ["ある","あります","ございます","있다(사물)"],
+ ["見{み}る","見{み}ます","拝見{はいけん}します / (손님)ご覧{らん}になります","보다"],
+ ["知{し}っている","知{し}っています","存{ぞん}じております / (손님)ご存知{ぞんじ}です","알고 있다"]
+];
+
+function rb(s){return (s||"").replace(/([一-鿿々]+)\{([^}]+)\}/g,"<ruby>$1<rt>$2</rt></ruby>")}
+function plain(s){return (s||"").replace(/\{[^}]+\}/g,"")}
+const $=id=>document.getElementById(id);
+let st={cat:"all",q:"",lang:"both",cover:false,ko:true,tab:"items",done:{}};
+
+function line(l,t){const c=l==="EN"?"en":l==="JA"?"ja":"ko ko-l";return `<div class="ln ${c}"><i>${l=="KO"?"한글":l}</i><span>${rb(t)}</span></div>`}
+function bub(cls,who,en,ja,ko){return `<div class="b ${cls}"><div class="who">${who}</div>${line("EN",en)}${line("JA",ja)}${ko?line("KO",ko):""}</div>`}
+function card(it){
+  const d=!!st.done[it.id];
+  return `<article class="item ${d?"done":""}" data-id="${it.id}">
+    <div class="ih"><div><h2>${it.en}</h2><div class="jp">${rb(it.ja)}</div><div class="ko">${it.ko}</div></div>
+    <button class="memo" data-memo="${it.id}" aria-pressed="${d}">${d?"외웠어요":"외우는 중"}</button></div>
+    ${it.p.map((p,i)=>`<div class="prob"><div class="pt">상황 · ${p.t}</div>
+      ${p.ge?bub("guest","손님 GUEST",p.ge,p.gj,KO[it.id][i][0]):""}
+      ${bub("staff","직원 STAFF",p.se,p.sj,KO[it.id][i][1])}
+      <div class="note">${rb(p.n)}</div></div>`).join("")}
+  </article>`;
+}
+function renderItems(){
+  const q=st.q.trim().toLowerCase();
+  const list=D.filter(it=>(st.cat==="all"||it.c===st.cat)&&(!q||(it.en+plain(it.ja)+it.ko).toLowerCase().includes(q)));
+  $("grid").innerHTML=list.length?list.map(card).join(""):`<div class="empty">검색 결과가 없습니다.</div>`;
+  renderStat(list.length);
+  const g=$("grid");
+  g.classList.toggle("en-only",st.lang==="en");g.classList.toggle("ja-only",st.lang==="ja");g.classList.toggle("cover",st.cover);g.classList.toggle("no-ko",!st.ko);
+  g.querySelectorAll(".staff").forEach(b=>{if(st.cover){b.setAttribute("tabindex","0");b.setAttribute("role","button")}else{b.removeAttribute("tabindex");b.removeAttribute("role")}});
+}
+let shown=D.length;
+function renderStat(c){
+  if(typeof c==="number")shown=c;
+  const n=D.filter(i=>st.done[i.id]).length;
+  $("stat").innerHTML=`표시 <b>${shown}</b>개 · 외운 품목 <b>${n}</b> / ${D.length}`;
+}
+function renderCats(){
+  $("cats").innerHTML=CATS.map(([k,n])=>{
+    const tot=k==="all"?D.length:D.filter(i=>i.c===k).length, dn=D.filter(i=>(k==="all"||i.c===k)&&st.done[i.id]).length;
+    return `<button class="chip" data-cat="${k}" aria-pressed="${st.cat===k}">${n} ${dn}/${tot}</button>`}).join("");
+}
+function renderGram(){
+  const pats=(arr,isJa,kx)=>arr.map(([h,m,e],i)=>`<div class="pat"><h3>${rb(h)}</h3><div class="mean">${rb(m)}</div><div class="ex ${isJa?"ja":""}">${rb(e)}<span style="font-family:var(--sans);font-size:13px;color:var(--muted);line-height:1.5">${kx[i]}</span></div></div>`).join("");
+  $("view-gram").innerHTML=`
+   <h2>손님 응대 대화 5단계</h2><p>어떤 품목이든 이 순서로 말하면 자연스럽습니다.</p>
+   <div class="steps">${FLOW.map((f,i)=>`<div class="step"><h3>${f[0]}</h3><div>${f[1]}</div><div class="ln ja" style="font-family:var(--jp);line-height:2">${rb(f[2])}</div><div class="mean" style="color:var(--muted)">${FLOW_EX_KO[i]}<br>${FLOW_KO[i]}</div></div>`).join("")}</div>
+   <h2>영어 핵심 패턴</h2><div class="grid">${pats(EN_PAT,false,EN_EX_KO)}</div>
+   <h2>일본어 핵심 패턴</h2><p>직원은 손님에게 <b>경어</b>(높임말)를 씁니다. 자신은 낮추고(겸양) 손님은 높입니다(존경).</p>
+   <div class="grid">${pats(JA_PAT,true,JA_EX_KO)}</div>
+   <h2>고장 표현은 '자동사'로</h2><p>일본어는 '사람이 한 일'이 아니라 '저절로 그렇게 된 상태'를 말하면 부드럽습니다. 자동사는 저절로 되는 동작, 타동사는 사람이 하는 동작입니다.</p>
+   <div class="tw"><table><thead><tr><th>손님이 하는 말(자동사)</th><th>자동사 / 타동사</th><th>뜻</th></tr></thead><tbody>${JA_VERB.map(r=>`<tr><td>${rb(r[0])}</td><td>${rb(r[1])}</td><td>${r[2]}</td></tr>`).join("")}</tbody></table></div>
+   <h2>경어 변환표</h2>
+   <div class="tw"><table><thead><tr><th>기본형</th><th>보통 정중체</th><th>직원이 쓰는 말</th><th>뜻</th></tr></thead><tbody>${KEIGO.map(r=>`<tr>${r.map(c=>`<td>${rb(c)}</td>`).join("")}</tr>`).join("")}</tbody></table></div>`;
+}
+const KEY="hotel-room-phrases:done";
+function setSync(t){$("sync").textContent=t}
+function save(){
+  try{localStorage.setItem(KEY,JSON.stringify(st.done));setSync("이 기기의 브라우저에 자동 저장됩니다.")}
+  catch(e){setSync("저장 공간을 쓸 수 없어 이번 방문 동안만 기록됩니다.")}
+  renderOverall();
+}
+function renderOverall(){
+  const n=D.filter(i=>st.done[i.id]).length,p=Math.round(n/D.length*100);
+  $("overall-num").textContent=`${n} / ${D.length}`;$("overall-pct").textContent=p+"%";
+  $("overall-bar").style.width=p+"%";$("overall").setAttribute("aria-valuenow",p);
+}
+function setTab(t,push){
+  st.tab=t;if(push!==false){try{history.replaceState(null,"",t==="gram"?"#grammar":"#items")}catch(e){}}$("view-items").hidden=t!=="items";$("view-gram").hidden=t!=="gram";
+  $("tab-items").setAttribute("aria-selected",t==="items");$("tab-gram").setAttribute("aria-selected",t==="gram");
+}
+$("tab-items").onclick=()=>{setTab("items");window.scrollTo({top:0})};$("tab-gram").onclick=()=>{setTab("gram");window.scrollTo({top:0})};
+window.addEventListener("hashchange",()=>setTab(location.hash==="#grammar"?"gram":"items",false));
+$("q").addEventListener("input",e=>{st.q=e.target.value;renderItems()});
+$("ko").addEventListener("change",e=>{st.ko=e.target.checked;renderItems()});
+$("cover").addEventListener("change",e=>{st.cover=e.target.checked;renderItems()});
+$("lang").addEventListener("click",e=>{const b=e.target.closest("[data-l]");if(!b)return;st.lang=b.dataset.l;
+  [...$("lang").children].forEach(x=>x.setAttribute("aria-pressed",x===b));renderItems()});
+$("cats").addEventListener("click",e=>{const b=e.target.closest("[data-cat]");if(!b)return;st.cat=b.dataset.cat;renderCats();renderItems()});
+$("grid").addEventListener("click",e=>{
+  const m=e.target.closest("[data-memo]");
+  if(m){const id=m.dataset.memo;st.done[id]=!st.done[id];
+    const d=!!st.done[id],c=m.closest(".item");c.classList.toggle("done",d);m.setAttribute("aria-pressed",d);m.textContent=d?"외웠어요":"외우는 중";
+    renderCats();renderStat();save();return}
+  const s=e.target.closest(".staff");
+  if(s&&st.cover)s.classList.toggle("show");
+});
+$("grid").addEventListener("keydown",e=>{
+  if((e.key==="Enter"||e.key===" ")&&e.target.classList.contains("staff")&&st.cover){e.preventDefault();e.target.classList.toggle("show")}
+});
+try{const l=localStorage.getItem(KEY);if(l)st.done=JSON.parse(l)||{}}catch(e){}
+window.addEventListener("storage",e=>{
+  if(e.key!==KEY)return;
+  try{st.done=JSON.parse(e.newValue)||{};renderCats();renderItems();renderOverall()}catch(x){}
+});
+renderCats();renderItems();renderGram();renderOverall();
+setTab(location.hash==="#grammar"?"gram":"items",false);
+setSync("이 기기의 브라우저에 자동 저장됩니다.");
+const toTop=$("totop");
+window.addEventListener("scroll",()=>{toTop.hidden=window.scrollY<600},{passive:true});
+toTop.addEventListener("click",()=>window.scrollTo({top:0,behavior:matchMedia("(prefers-reduced-motion: reduce)").matches?"auto":"smooth"}));
+</script>
+</body>
+</html>
